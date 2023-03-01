@@ -6,8 +6,6 @@ phases:
       - aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 180240674177.dkr.ecr.us-west-2.amazonaws.com
   build:
     commands:
-      - systemctl start docker
-      - systemctl restart docker
       - docker build -t fac-dev-backend .
       - docker tag fac-dev-backend:latest 180240674177.dkr.ecr.us-west-2.amazonaws.com/fac-dev-backend:latest
   post_build:
