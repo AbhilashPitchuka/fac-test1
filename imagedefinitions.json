@@ -1,0 +1,6 @@
+[
+    {
+      "name": "fac-dev-backend",
+      "imageUri": "180240674177.dkr.ecr.us-west-2.amazonaws.com/fac-dev-backend:latest"
+    }
+  ]
