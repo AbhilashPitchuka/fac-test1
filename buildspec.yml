@@ -11,7 +11,7 @@ phases:
   post_build:
     commands:
       - docker push 180240674177.dkr.ecr.us-west-2.amazonaws.com/fac-dev-backend:latest
-      - printf '[{"name":"ecr","imageUri":"180240674177.dkr.ecr.us-west-2.amazonaws.com/fac-dev-backend"}]' >imagedefinitions.json
+      #- printf '[{"name":"ecr","imageUri":"180240674177.dkr.ecr.us-west-2.amazonaws.com/fac-dev-backend"}]' >imagedefinitions.json
 artifacts:
  files:
   #  - "**/*"
