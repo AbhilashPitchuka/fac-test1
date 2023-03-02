@@ -8,6 +8,7 @@ phases:
     commands:
       - docker build -t $STACK-$ENV-backend .
       - docker tag $STACK-$ENV-backend:latest $ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com/$STACK-$ENV-backend:latest
+      
   post_build:
     commands:
       - docker push $ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com/$STACK-$ENV-backend:latest
