@@ -3,15 +3,15 @@ phases:
   pre_build:
     commands:
       # - docker pull node:18.12.1-alpine
-      - aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 180240674177.dkr.ecr.us-west-2.amazonaws.com
+      - aws ecr get-login-password --region $REGION | docker login --username AWS --password-stdin $ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com
   build:
     commands:
-      - docker build -t fac-dev-backend .
-      - docker tag fac-dev-backend:latest 180240674177.dkr.ecr.us-west-2.amazonaws.com/fac-dev-backend:latest
+      - docker build -t $STACK-$ENV-backend .
+      - docker tag $STACK-$ENV-backend:latest $ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com/$STACK-$ENV-backend:latest
   post_build:
     commands:
-      - docker push 180240674177.dkr.ecr.us-west-2.amazonaws.com/fac-dev-backend:latest
-      #- printf '[{"name":"ecr","imageUri":"180240674177.dkr.ecr.us-west-2.amazonaws.com/fac-dev-backend"}]' >imagedefinitions.json
+      - docker push $ACCOUNT_ID.dkr.ecr.$REGION.amazonaws.com/$STACK-$ENV-backend:latest
+
 artifacts:
  files:
   #  - "**/*"
