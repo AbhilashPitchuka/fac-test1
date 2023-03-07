@@ -1,4 +1,3 @@
-
 FROM node:18.12.1-alpine
 
 WORKDIR /backend
@@ -12,4 +11,3 @@ COPY . .
 EXPOSE 3000
 
 CMD ["node","index.js"]
-
